@@ -274,7 +274,7 @@
 
              <!-- AI Selection Buttons -->
              <div id="ai-selection">
-                 <button type="button" class="ai-button" data-provider="stellarai" onclick="selectAI('stellarai')">StellarAI</button>
+                 <button type="button" class="ai-button" data-provider="ProxBot" onclick="selectAI('stellarai')">ProxBot</button>
                  <button type="button" class="ai-button" data-provider="openai" onclick="selectAI('openai')">ChatGPT</button>
                  <button type="button" class="ai-button" data-provider="anthropic" onclick="selectAI('anthropic')">Claude</button>
              </div>
@@ -336,19 +336,19 @@
 
          // *** PLACE YOUR API KEYS HERE ***
          const apiKeys = {
-             stellarai: "AIzaSyCwRGkB59np3kppkEMLSyfY7GuyDTNVUFw",
+             ProxBot: "AIzaSyCwRGkB59np3kppkEMLSyfY7GuyDTNVUFw",
              openai: "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",
              anthropic: "YOUR_ANTHROPIC_API_KEY" // Claude Key
          }; // Fixed missing closing brace
 
-         let currentProvider = "stellarai";
+         let currentProvider = "ProxBot";
          let currentModel = "gemini-1.5-flash";
          let currentTemperature = 0.7;
          let currentStopSequences = [];
          let currentSafetySettings = getDefaultSafetySettings();
 
          const modelOptions = {
-             stellarai: ["gemini-1.5-flash", "gemini-2.0-pro"],
+             ProxBot: ["gemini-1.5-flash", "gemini-2.0-pro"],
              openai: ["gpt-4o", "gpt-3.5-turbo-0125"],
              anthropic: ["claude-3-opus-20240229", "claude-3-sonnet-20240229", "claude-3-haiku-20240307"],
          };
@@ -366,7 +366,7 @@
 
              let data, headers, url;
 
-             if (currentProvider === "stellarai") {
+             if (currentProvider === "ProxBot") {
                  const safetySettings = currentSafetySettings;
                  const generationConfig = {
                      temperature: currentTemperature,
@@ -433,7 +433,7 @@
                  const result = await response.json();
                  let responseText = "";
 
-                 if (currentProvider === "stellarai") { // Changed provider name
+                 if (currentProvider === "ProxBot") { // Changed provider name
                      if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
                          responseText = result.candidates[0].content.parts[0].text;
                      }
@@ -599,7 +599,7 @@
              updateModelOptions();
              //Show/hide safety settings.
              const safetySettingsContainer = document.getElementById('safetySettingsContainer');
-             safetySettingsContainer.style.display = currentProvider ==='stellarai' ? 'block': 'none';
+             safetySettingsContainer.style.display = currentProvider ==='ProxBot' ? 'block': 'none';
 
          }
          function updateModelOptions() {
@@ -633,7 +633,7 @@
                  .filter(s => s !== "");
 
              // Safety Settings (Gemini only)
-             if (currentProvider === "stellarai") {
+             if (currentProvider === "ProxBot") {
                  currentSafetySettings = [];
                  const safetySettingsDiv = document.getElementById('safetySettings');
                  const safetyGroups = safetySettingsDiv.querySelectorAll('.safety-setting-group');
