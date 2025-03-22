@@ -348,7 +348,7 @@
          let currentSafetySettings = getDefaultSafetySettings();
 
          const modelOptions = {
-             stellarai: ["gemini-1.5-flash", "gemini-2.0-pro"],
+             ProxBot: ["gemini-1.5-flash", "gemini-2.0-pro"],
              openai: ["gpt-4o", "gpt-3.5-turbo-0125"],
              anthropic: ["claude-3-opus-20240229", "claude-3-sonnet-20240229", "claude-3-haiku-20240307"],
          };
@@ -366,7 +366,7 @@
 
              let data, headers, url;
 
-             if (currentProvider === "stellarai") {
+             if (currentProvider === "ProxBot") {
                  const safetySettings = currentSafetySettings;
                  const generationConfig = {
                      temperature: currentTemperature,
@@ -599,7 +599,7 @@
              updateModelOptions();
              //Show/hide safety settings.
              const safetySettingsContainer = document.getElementById('safetySettingsContainer');
-             safetySettingsContainer.style.display = currentProvider ==='stellarai' ? 'block': 'none';
+             safetySettingsContainer.style.display = currentProvider ==='ProxBot' ? 'block': 'none';
 
          }
          function updateModelOptions() {
@@ -633,7 +633,7 @@
                  .filter(s => s !== "");
 
              // Safety Settings (Gemini only)
-             if (currentProvider === "stellarai") {
+             if (currentProvider === "ProxBot") {
                  currentSafetySettings = [];
                  const safetySettingsDiv = document.getElementById('safetySettings');
                  const safetyGroups = safetySettingsDiv.querySelectorAll('.safety-setting-group');
