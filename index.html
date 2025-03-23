@@ -274,7 +274,7 @@
 
              <!-- AI Selection Buttons -->
              <div id="ai-selection">
-                 <button type="button" class="ai-button" data-provider="ProxBot" onclick="selectAI('ProxBot')">ProxBot</button>
+                 <button type="button" class="ai-button" data-provider="proxbot" onclick="selectAI('proxbot')">ProxBot</button>
                  <button type="button" class="ai-button" data-provider="openai" onclick="selectAI('openai')">ChatGPT</button>
                  <button type="button" class="ai-button" data-provider="anthropic" onclick="selectAI('anthropic')">Claude</button>
              </div>
@@ -337,18 +337,18 @@
          // *** PLACE YOUR API KEYS HERE ***
          const apiKeys = {
              ProxBot: "AIzaSyCwRGkB59np3kppkEMLSyfY7GuyDTNVUFw",
-             openai: "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",
+             openai: "",
              anthropic: "YOUR_ANTHROPIC_API_KEY" // Claude Key
          }; // Fixed missing closing brace
 
-         let currentProvider = "ProxBot";
+         let currentProvider = "proxbot";
          let currentModel = "gemini-1.5-flash";
          let currentTemperature = 0.7;
          let currentStopSequences = [];
          let currentSafetySettings = getDefaultSafetySettings();
 
          const modelOptions = {
-             ProxBot: ["gemini-1.5-flash", "gemini-2.0-pro"],
+             proxbot: ["gemini-1.5-flash", "gemini-2.0-pro"],
              openai: ["gpt-4o", "gpt-3.5-turbo-0125"],
              anthropic: ["claude-3-opus-20240229", "claude-3-sonnet-20240229", "claude-3-haiku-20240307"],
          };
@@ -366,7 +366,7 @@
 
              let data, headers, url;
 
-             if (currentProvider === "ProxBot") {
+             if (currentProvider === "proxbot") {
                  const safetySettings = currentSafetySettings;
                  const generationConfig = {
                      temperature: currentTemperature,
